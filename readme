@@ -1,0 +1,46 @@
+Olivia Clifton (oclifton@ucar.edu)
+
+this directory contains the scripts used to produce results for Clifton, O. E., Fiore, A. M., Munger, J. W., and Wehr, R. (2019), Spatiotemporal controls on observed daytime ozone deposition velocity over Northeastern U.S. forests during summer, Journal of Geophysical Research-Atmospheres.
+
+it also contains hourly data from Kane Experimental Forest and Sand Flats State Forest (the full dataset from these sites is available from Donna Schwede at donna.schwede@epa.gov). 
+
+---------------------------------------------------------------------
+hourly_data_Kane.txt contains ozone deposition velocity (o3ddv; cm/s), stomatal conductance (gs; cm/s), precipitation (prec; mm/hr), relative humidity (rh; %), atmospheric vapor pressure deficit (VPD; kPa), and leaf wetness (wetness; unitless). 
+
+o3ddv is calculated from read_o3ec_filter_kane.m
+gs is calculated from calc_pm_gs_kane.m
+
+hourly_data_SandFlats.txt contains ozone deposition velocity (o3ddv; cm/s), stomatal conductance (gs; cm/s), precipitation (prec; mm/hr), relative humidity (rh; %), atmospheric vapor pressure deficit (VPD; kPa), and leaf wetness (wetness; unitless).
+
+o3ddv is calculated from read_o3ec_filter_sand.m
+gs is calculated from calc_pm_gs_sand.m
+
+For Kane and Sand Flats, the following scripts need to be run first to get calculated quantities needed for other scripts:
+calc_pm_gs_kane.m (or calculated quantity can be used from hourly_data_Kane.txt)
+calc_pm_gs_sand.m (or calculated quantity can be used from hourly_data_SandFlats.txt)
+
+in the following Kane and Sand Flats scripts, rh, wetness, VPD, and/or prec need to be read in from hourly_data_Kane.txt or hourlydata_SandFlats.txt: calc_mlr_day2day_k_vpd.m, calc_mlr_day2day_sk.m, plot_o3ddv_prec_sk.m, plot_weekly_day_am_pm_sk.m
+
+---------------------------------------------------------------------
+Harvard Forest data is available from the Harvard Forest Data Archive
+
+Boose, E., & Gould, E. (2004). Shaler Meteorological Station at Harvard Forest 1964-2002. Harvard Forest Data Archive: HF000. https://doi.org/10.6073/pasta/84cf303ea3331fb47e8791aa61aa91b2
+
+Davidson, E., & Savage, K. (1999). Soil Respiration, Temperature and Moisture at Harvard Forest EMS Tower since 1995. Harvard Forest Data Archive: HF006. https://doi.org/10.6073/pasta/33ba3432103297fe0644de6e0898f91f
+
+Munger, J. W., & Wofsy, S. (1999). Canopy-Atmosphere Exchange of Carbon, Water and Energy at Harvard Forest EMS Tower since 1991. Harvard Forest Data Archive: HF004. https://doi.org/10.6073/pasta/dd9351a3ab5316c844848c3505a8149d
+
+Munger, J. W., & Wofsy, S. (1999a). Biomass Inventories at Harvard Forest EMS Tower since 1993. Harvard Forest Data Archive: HF069.
+https://doi.org/10.6073/pasta/37ff12d47894a73ddd9d86c1225e2dc8
+
+Note that while HF004 containts ozone flux and concentrations, Clifton et al. used ozone fluxes and concentrations from HF_O3_flux_140805.dat, which is available directly from J. W. Munger. There are some, relatively minor, differences between the datasets.
+
+The Harvard Forest datasets need to be downloaded before scripts can run successfully. 
+For Harvard Forest, the following scripts need to be run first to get calculated quantities needed for other scripts:
+calc_lai_by_plot.m
+calc_medlyn_gs.m
+calc_o3ddv_stp.m
+calc_pm_gs.m
+plot_cumprec.m
+
+
